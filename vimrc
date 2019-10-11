@@ -11,16 +11,30 @@ endif
 " let vim-plug manage plugins
 call plug#begin('~/.vim/plugged')
   "Plug 'gmarik/Vundle.vim'
+
+  " Fuzzy search and open
   Plug 'kien/ctrlp.vim'
+
+  " Directory tree view
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
+
+  " Snippets
   Plug 'SirVer/ultisnips'
-  Plug 'lervag/vimtex', {'for': 'tex'}
+
+  " Actually a color scheme..
   Plug 'crusoexia/vim-monokai'
+
+  " IDE features
   Plug 'Valloric/YouCompleteMe'
   Plug 'dense-analysis/ale'
+
+  " status line
   Plug 'itchyny/lightline.vim'
-  Plug 'neovimhaskell/haskell-vim'
+
+  Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
+  
+  Plug 'lervag/vimtex', {'for': 'tex'}
 call plug#end()
 
 filetype plugin on            " required so plugins can detect filetype
@@ -28,17 +42,6 @@ filetype indent on
 filetype on
 
 set autoread    " automatically read changed files on disk
-
-" venv
-python3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    activate_this = "source {}".format(os.path.join(project_base_dir, 'bin/activate'))
-    print(activate_this +"\n")
-    os.system(activate_this)
-EOF
 
 syntax on
 colorscheme monokai
@@ -67,9 +70,12 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
+" don't close buffers
+set hidden
 
-" Column Numbers
+" Numbers
 set number
+set ruler
 
 " line highlighting
 set cursorline
@@ -79,105 +85,22 @@ set colorcolumn=110
 " color scheme
 highlight colorcolumn ctermbg=darkgray
 
+" slience
+set noerrorbells
+set vb t_vb=
 
 " split default
 set splitright
 set splitbelow
 
-" navigation
-nnoremap <C-J> <C-W><C-H>
-nnoremap <C-K> <C-W><C-J>
-nnoremap <C-I> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
+" Use par for prettier line formatting
+set formatprg=par
+let $PARINIT = 'rTbgqR B=.,?_A_a Q=_s>|'
 
-inoremap <C-J> <C-o><C-W><C-H>
-inoremap <C-K> <C-o><C-W><C-J>
-inoremap <C-I> <C-o><C-W><C-K>
-inoremap <C-L> <C-o><C-W><C-L>
-
-" exit modes (jk versions are legacy..)
-inoremap jk    <esc>
-inoremap <leader>k <esc>
-
-vnoremap jk    <esc>
-vnoremap <leader>k <esc>
-
-" close
-nnoremap <leader>q :q<CR>
-nnoremap <silent> <leader>ww :silent w<CR>
-nnoremap <leader>wq :wq<CR>
-nnoremap <leader>qq :q!<CR>
-
-inoremap <leader>q <C-o>:q<CR>
-inoremap <silent> <leader>ww <C-o>:silent w<CR>
-inoremap <leader>wq <C-o>:wq<CR>
-inoremap <leader>qq <C-o>:q!<CR>
-
-vnoremap <leader>wq <esc>:wq<CR>
-vnoremap <leader>qq <esc>:q!<CR>
-
-" sudo write
-cmap w!! w !sudo tee > /dev/null &
-
-" go back in search
-noremap <leader>, <C-O>
-
-" tab navigation
-nnoremap <leader>t  :tabnew<CR>
-nnoremap <leader>wt :tabclose<CR>
-nnoremap <leader>et :tabedit<Space>
-nnoremap <leader>f  :tabnext<CR>
-nnoremap <leader>d  :tabprevious<CR>
-
-inoremap <leader>f  <C-o>:tabnext<CR>
-inoremap <leader>d  <C-o>:tabprevious<CR>
-
-nnoremap <leader>1 1gt
-nnoremap <leader>2 2gt
-nnoremap <leader>3 3gt
-nnoremap <leader>4 4gt
-nnoremap <leader>5 5gt
-nnoremap <leader>6 6gt
-nnoremap <leader>7 7gt
-nnoremap <leader>8 8gt
-nnoremap <leader>9 9gt
-nnoremap <leader>0 10gt
-" YouCompleteMe
-noremap <leader>. :YcmCompleter GoTo<CR>
-noremap <leader>/ :YcmCompleter GoToReferences<CR>
-noremap <leader>' :YcmCompleter FixIt<CR>
-
-let g:ycm_key_list_stop_completion = ['<C-y', '<UP>', '<DOWN>']
-set completeopt-=preview "Not YCM related, but I do not like preview windows and YCM triggers them
-
-" NERDTree
-au vimenter * NERDTree
-au vimenter * wincmd p
-au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let NERDTreeShowHidden=1
-nnoremap <C-D> :NERDTreeToggle<CR>
-
-"ctrlp
-let g:ctrlp_map = '<leader>p'
-
-"lightline
-set noshowmode
-
-" UltiSnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<C-g>"
-let g:UltiSnipsJumpForwardTrigger="<C-g>"
-let g:UltiSnipsJumpBackwardTrigger="<C-f>"
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnippets"
-let g:UltiSnipsSnippetDirectories= ['UltiSnippets']
-let g:UltiSnipsEditSplit="vertical"
-nnoremap <leader>ue :UltiSnipsEdit<cr>
 
 " include .tex file settings
 " source ~/.vimrc_tex
 
-" python specific
-let python_highlight_all = 1
-au BufNewFile,BufRead *.jinja set syntax=htmljinja
 
 " Delete trailing white space on save
 " will only run if the ftplugin/*.vim sets `b:stripWhitespaces=1`
@@ -192,3 +115,18 @@ fun! CleanExtraSpaces()
 endfun
 
 autocmd BufWritePre * :call CleanExtraSpaces()
+
+" Return to last edit position when opening files
+augroup last_edit
+  autocmd!
+  autocmd BufReadPost *
+       \ if line("'\"") > 0 && line("'\"") <= line("$") |
+       \   exe "normal! g`\"" |
+       \ endif
+augroup END
+
+" more files
+source vimfiles/shortcuts.vim
+source vimfiles/plugins.vim
+
+
