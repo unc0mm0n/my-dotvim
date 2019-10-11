@@ -1,0 +1,78 @@
+global !p
+def create_label(pref, name):
+	return "\\label{{{pref}:{name}}}".format(pref=pref, name="-".join(name.lower().split()))
+endglobal
+
+#Environments
+snippet env "create new environment" bA
+\begin{$1}
+	${VISUAL}$2
+\end{$1}
+
+endsnippet
+
+snippet env "create new environment"
+
+\begin{$1}
+	${VISUAL}$2
+\end{$1}
+
+endsnippet
+
+snippet mm "inline math" wA
+\( ${VISUAL}$1 \) 
+endsnippet
+
+snippet mk "display math" wA
+
+\[
+	${VISUAL}$1
+\]
+
+endsnippet
+
+snippet '(thm|lem|cor|defn|exa|prop|exe|sol|rem)' "new theorem env" brA
+\begin{`!p snip.rv = match.group(1)`}`!p snip.rv = '[' if t[1] else ''`${1:name}`!p snip.rv = ']' + create_label(match.group(1), t[1]) if t[1] else ''`
+	${VISUAL}$2
+\end{`!p snip.rv = match.group(1)`}
+
+endsnippet
+
+#sub/sup scripts
+snippet _ "subscript braces" iA
+_{${VISUAL}$1}
+endsnippet
+
+snippet ^ "supscript braces" iA
+^{${VISUAL}$1}
+endsnippet
+
+#Delimiters
+snippet 'dl (.+) (.+) ' "delimiters from values" irA
+ \left`!p snip.rv=match.group(1)` ${VISUAL} $1 \right`!p snip.rv=match.group(2)` 
+endsnippet
+
+# Special case as we use often and need to escape {
+snippet 'dls{}' "delimiters from sets" irA
+ \left\\{ ${VISUAL}$1 \right\\} 
+endsnippet
+
+#lower priority so we can use dls{}
+priority -1
+snippet 'dls(.)(.)' "delimiters from singletons" irA
+ \left`!p snip.rv=match.group(1)` ${VISUAL}$1 \right`!p snip.rv=match.group(2)` 
+endsnippet
+
+
+# Lower priority so that we can still write dls() if we want to
+priority -2
+snippet () "quick macro for normal brackets" iA
+ \left( ${VISUAL}$1 \right) 
+endsnippet
+priority 0
+
+#Basic Operations
+snippet // "basic frac" iA
+ \frac{ ${VISUAL}$1 }{ $2 } 
+endsnippet
+
