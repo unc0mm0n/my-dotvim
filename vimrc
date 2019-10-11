@@ -95,7 +95,7 @@ inoremap <C-K> <C-o><C-W><C-J>
 inoremap <C-I> <C-o><C-W><C-K>
 inoremap <C-L> <C-o><C-W><C-L>
 
-" exit modes
+" exit modes (jk versions are legacy..)
 inoremap jk    <esc>
 inoremap <leader>k <esc>
 
@@ -106,15 +106,15 @@ vnoremap <leader>k <esc>
 nnoremap <leader>q :q<CR>
 nnoremap <silent> <leader>ww :silent w<CR>
 nnoremap <leader>wq :wq<CR>
-nnoremap <leader>fq :q!<CR>
+nnoremap <leader>qq :q!<CR>
 
 inoremap <leader>q <C-o>:q<CR>
 inoremap <silent> <leader>ww <C-o>:silent w<CR>
 inoremap <leader>wq <C-o>:wq<CR>
-inoremap <leader>fq <C-o>:q!<CR>
+inoremap <leader>qq <C-o>:q!<CR>
 
 vnoremap <leader>wq <esc>:wq<CR>
-vnoremap <leader>fq <esc>:q!<CR>
+vnoremap <leader>qq <esc>:q!<CR>
 
 " sudo write
 cmap w!! w !sudo tee > /dev/null &
@@ -122,10 +122,26 @@ cmap w!! w !sudo tee > /dev/null &
 " go back in search
 noremap <leader>, <C-O>
 
-"convenience
-nnoremap _ :m .-2 <CR>
-nnoremap - :m+ <CR>
+" tab navigation
+nnoremap <leader>t  :tabnew<CR>
+nnoremap <leader>wt :tabclose<CR>
+nnoremap <leader>et :tabedit<Space>
+nnoremap <leader>f  :tabnext<CR>
+nnoremap <leader>d  :tabprevious<CR>
 
+inoremap <leader>f  <C-o>:tabnext<CR>
+inoremap <leader>d  <C-o>:tabprevious<CR>
+
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
+nnoremap <leader>0 10gt
 " YouCompleteMe
 noremap <leader>. :YcmCompleter GoTo<CR>
 noremap <leader>/ :YcmCompleter GoToReferences<CR>
@@ -161,25 +177,18 @@ nnoremap <leader>ue :UltiSnipsEdit<cr>
 
 " python specific
 let python_highlight_all = 1
-au FileType python set
-    \   tabstop=4
-    \   softtabstop=4
-    \   shiftwidth=4
-    \   expandtab
-    \   autoindent
-    \   fileformat=unix
-  \ showmatch
 au BufNewFile,BufRead *.jinja set syntax=htmljinja
 
-" Delete trailing white space on save, useful for some filetypes ;)
+" Delete trailing white space on save
+" will only run if the ftplugin/*.vim sets `b:stripWhitespaces=1`
 fun! CleanExtraSpaces()
+  if exists('b:stripWhitespaces')
     let save_cursor = getpos(".")
     let old_query = getreg('/')
     silent! %s/\s\+$//e
     call setpos('.', save_cursor)
     call setreg('/', old_query)
+  endif
 endfun
 
-if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
-endif
+autocmd BufWritePre * :call CleanExtraSpaces()
