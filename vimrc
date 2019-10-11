@@ -125,8 +125,4 @@ augroup last_edit
        \ endif
 augroup END
 
-" more files
-source vimfiles/shortcuts.vim
-source vimfiles/plugins.vim
-
-
+" more files in plugin directory
