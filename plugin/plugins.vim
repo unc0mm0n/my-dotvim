@@ -1,9 +1,21 @@
 
 " prevent arrow keys from interacting with YCM autocompetion suggestions
 let g:ycm_key_list_stop_completion = ['<C-y', '<UP>', '<DOWN>']
-
 "Not YCM related, but I do not like preview windows and YCM triggers them
 set completeopt-=preview
+
+" YouCompleteMe
+" noremap <leader>. :YcmCompleter GoTo<CR>
+" noremap <leader>/ :YcmCompleter GoToReferences<CR>
+" noremap <leader>' :YcmCompleter FixIt<CR>
+
+" CoC (the YCM replacement for haskell)
+inoremap <silent><expr> <leader><space> coc#refresh()
+nnoremap <silent> <leader>. :call CocAction('jumpDefinition')<CR>
+nnoremap <silent> <leader>/ :call CocAction('jumpReferences')<CR>
+nnoremap <silent> <leader>' :call CocActionAsync('doQuickFix')<CR>
+nnoremap <silent> <leader>r :call CocActionAsync('rename')<CR>
+nnoremap <silent> <leader>i :call CocAction('doHover')<CR>
 
 " NERDTree
 au vimenter * NERDTree

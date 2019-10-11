@@ -33,6 +33,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'itchyny/lightline.vim'
 
   Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
+  " for now only for haskell, but a good candidate to replacing YCM
+  Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': 'haskell'}
   
   Plug 'lervag/vimtex', {'for': 'tex'}
 call plug#end()
@@ -92,11 +94,6 @@ set vb t_vb=
 " split default
 set splitright
 set splitbelow
-
-" Use par for prettier line formatting
-set formatprg=par
-let $PARINIT = 'rTbgqR B=.,?_A_a Q=_s>|'
-
 
 " include .tex file settings
 " source ~/.vimrc_tex

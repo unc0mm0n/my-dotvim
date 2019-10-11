@@ -56,7 +56,3 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <leader>0 10gt
-" YouCompleteMe
-noremap <leader>. :YcmCompleter GoTo<CR>
-noremap <leader>/ :YcmCompleter GoToReferences<CR>
-noremap <leader>' :YcmCompleter FixIt<CR>
