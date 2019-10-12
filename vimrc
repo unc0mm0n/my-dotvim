@@ -26,15 +26,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'crusoexia/vim-monokai'
 
   " IDE features
-  Plug 'Valloric/YouCompleteMe'
+  Plug 'Valloric/YouCompleteMe', {'for': ['python', 'c']}
+  " IDE features 2
   Plug 'dense-analysis/ale'
+  " IDE feautres 3  for now only for haskell, but a good candidate to replacing YCM
+  Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': 'haskell'}
 
   " status line
   Plug 'itchyny/lightline.vim'
 
   Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
-  " for now only for haskell, but a good candidate to replacing YCM
-  Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': 'haskell'}
   
   Plug 'lervag/vimtex', {'for': 'tex'}
 call plug#end()
