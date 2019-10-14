@@ -25,7 +25,17 @@ let g:ctrlp_map = '<leader>p'
 
 "lightline
 set noshowmode
-
+"line customization (uses git-fugitive)
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'fugitive#head'
+      \ },
+      \ }
 " UltiSnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<C-g>"
 let g:UltiSnipsJumpForwardTrigger="<C-g>"

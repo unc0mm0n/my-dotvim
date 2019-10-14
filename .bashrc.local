@@ -1,0 +1,21 @@
+RESET="\[\017\]"
+NORMAL="\[\033[0m\]"
+RED="\[\033[31;1m\]"
+GREEN="\[\033[0;32m\]"
+LIGHTGREEN="\[\033[01;32m\]"
+YELLOW="\[\033[33;1m\]"
+WHITE="\[\033[37;1m\]"
+LIGHTBLUE="\[\033[01;34m\]"
+SMILEY="${GREEN}:)${NORMAL}"
+FROWNY="${RED}:(${NORMAL}"
+SELECT="if [ \$? = 0 ]; then echo \"${SMILEY}\"; else echo \"${FROWNY}\"; fi"
+
+# Create prompt
+PSPROMPT="${RESET}${LIGHTGREEN}[\t] ${LIGHTBLUE}\w${NORMAL} \`${SELECT}\` ${YELLOW}\$${NORMAL} "
+
+# Create tab
+TAB="\W"
+TABESCAPE="\[\e]0;${TAB}\a\]"
+
+# combine them
+PS1=${TABESCAPE}${PSPROMPT}
