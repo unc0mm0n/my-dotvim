@@ -26,11 +26,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'crusoexia/vim-monokai'
 
   " IDE features
-  Plug 'Valloric/YouCompleteMe', {'for': ['python', 'c']}
+  Plug 'Valloric/YouCompleteMe', {'for': 'python'}
   " IDE features 2
   Plug 'dense-analysis/ale'
   " IDE feautres 3  for now only for haskell, but a good candidate to replacing YCM
-  Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': 'haskell'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['haskell', 'c', 'cpp']}
 
   " status line
   Plug 'itchyny/lightline.vim'
@@ -63,6 +63,8 @@ set ignorecase
 set smartcase
 set hlsearch "highlight
 set incsearch "incremental
+
+set fileformat=unix
 
 " status
 set laststatus=2

@@ -4,10 +4,6 @@ let g:ycm_key_list_stop_completion = ['<C-y', '<UP>', '<DOWN>']
 "Not YCM related, but I do not like preview windows and YCM triggers them
 set completeopt-=preview
 
-" YouCompleteMe
-" noremap <leader>. :YcmCompleter GoTo<CR>
-" noremap <leader>/ :YcmCompleter GoToReferences<CR>
-" noremap <leader>' :YcmCompleter FixIt<CR>
 
 " CoC (the YCM replacement for haskell)
 inoremap <silent><expr> <leader><space> coc#refresh()

@@ -14,13 +14,15 @@ if 'VIRTUAL_ENV' in os.environ:
     os.system(activate_this)
 EOF
 
+" YouCompleteMe
+" noremap <leader>. :YcmCompleter GoTo<CR>
+" noremap <leader>/ :YcmCompleter GoToReferences<CR>
+" noremap <leader>' :YcmCompleter FixIt<CR>
 setlocal tabstop=4
 setlocal softtabstop=4
 setlocal shiftwidth=4
 setlocal expandtab
 setlocal autoindent
-setlocal fileformat=unix
-setlocal showmatch
 
 let python_highlight_all = 1
 let b:stripWhitespaces=1

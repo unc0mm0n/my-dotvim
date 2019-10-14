@@ -6,7 +6,8 @@ nnoremap <C-L> <C-W><C-L>
 
 inoremap <C-J> <C-o><C-W><C-H>
 inoremap <C-K> <C-o><C-W><C-J>
-inoremap <C-I> <C-o><C-W><C-K>
+" inoremap <C-I> <C-o><C-W><C-K> Apparently in vim <C-I> = <Tab>, so should be
+" careful...
 inoremap <C-L> <C-o><C-W><C-L>
 
 " exit modes (jk versions are legacy..)
