@@ -1,12 +1,13 @@
-" navigation
-nnoremap <C-J> <C-W><C-H>
-nnoremap <C-K> <C-W><C-J>
-nnoremap <C-I> <C-W><C-K>
+" navigation (I really do not want to get used to hjkl, as my jikl makes a lot
+" more sense. But I do want to use i for insert :(
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
-inoremap <C-J> <C-o><C-W><C-H>
-inoremap <C-K> <C-o><C-W><C-J>
-inoremap <C-I> <C-o><C-W><C-K>
+inoremap <C-H> <C-o><C-W><C-H>
+inoremap <C-J> <C-o><C-W><C-J>
+inoremap <C-K> <C-o><C-W><C-K>
 inoremap <C-L> <C-o><C-W><C-L>
 
 " exit modes (jk versions are legacy..)

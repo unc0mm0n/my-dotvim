@@ -12,6 +12,10 @@ endif
 call plug#begin('~/.vim/plugged')
   "Plug 'gmarik/Vundle.vim'
 
+  " Git is our god
+  Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
+
   " Fuzzy search and open
   Plug 'kien/ctrlp.vim'
 
@@ -44,6 +48,7 @@ filetype indent on
 filetype on
 
 set autoread    " automatically read changed files on disk
+set updatetime=1000 " default=4000
 
 syntax on
 colorscheme monokai
