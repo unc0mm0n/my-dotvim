@@ -3,8 +3,8 @@
 
 alias try="xdg-open"
 alias py3="python3"
-#alias ghci="stack ghci"
-#alias ghc="stack ghc"
+alias ghci="stack ghci"
+alias ghc="stack ghc"
 
 # Navigation aliases
 alias quit="exit"
@@ -15,3 +15,6 @@ alias nwconnect="nmcli dev wifi connect"
 
 # text zoom for convenience
 alias chzoom="gsettings set org.gnome.desktop.interface text-scaling-factor"
+
+# my new favorite ls command
+alias lt="tree -L 2"
