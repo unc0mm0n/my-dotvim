@@ -24,7 +24,7 @@ alias ff="firefox &>/dev/null &"
 alias naut="nautilus . &>/dev/null &"
 
 # easy gdrive mount and sync (WARNING: HOLDS THE TERMINAL) TODO: maybe mount all of gdrive in the future..
-alias gmount="google-drive-ocamlfuse ~/gdrive && source ~/math/venv/bin/activate && python3 ~/math/Masters/sync.py ~/math/Masters ~/gdrive/Math/Masters"
+alias gmount="sudo umount ~/gdrive && google-drive-ocamlfuse ~/gdrive && source ~/math/venv/bin/activate && python3 ~/math/Masters/sync.py ~/math/Masters ~/gdrive/Math/Masters --pull"
 
 # tree
 alias lt="tree -L 2"

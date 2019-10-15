@@ -37,8 +37,8 @@ let g:lightline = {
       \ },
       \ }
 " UltiSnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<C-g>"
-let g:UltiSnipsJumpForwardTrigger="<C-g>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<C-f>"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnippets"
 let g:UltiSnipsSnippetDirectories= ['UltiSnippets']
