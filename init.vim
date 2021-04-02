@@ -2,6 +2,11 @@ set nocompatible              " be iMproved, required
 filetype off                  " required?
 set encoding=utf-8            " We don't link non-utf stuff
 
+" set config dir for later use
+" I tried creating a function that sources automatically, but had issues
+" with importing it to other files...
+let g:nvim_config_root = stdpath('config')
+
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
