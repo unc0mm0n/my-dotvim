@@ -1,21 +1,12 @@
-
-" prevent arrow keys from interacting with YCM autocompetion suggestions
-let g:ycm_key_list_stop_completion = ['<C-y', '<UP>', '<DOWN>']
-"Not YCM related, but I do not like preview windows and YCM triggers them
-set completeopt-=preview
-
-
-" CoC (the YCM replacement for haskell)
-inoremap <silent><expr> <leader><space> coc#refresh()
-nnoremap <silent> <leader>. :call CocAction('jumpDefinition')<CR>
-nnoremap <silent> <leader>/ :call CocAction('jumpReferences')<CR>
-nnoremap <silent> <leader>' :call CocActionAsync('doQuickFix')<CR>
-nnoremap <silent> <leader>r :call CocActionAsync('rename')<CR>
-nnoremap <silent> <leader>i :call CocAction('doHover')<CR>
+" THESE SETTINGS ARE ONLY FOR GLOBAL PLUGINS!
+" If a plugin is loaded conditionally (using 'for') then the settings
+" must be added INDIVIDUALLY to each filetype loading it (in ftplugin)!!
 
 " NERDTree
+" Open nerdtree and leave to main buffer on open
 au vimenter * NERDTree
 au vimenter * wincmd p
+" close nerdtree if it is the only open buffer
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
 nnoremap <C-D> :NERDTreeToggle<CR>
@@ -25,7 +16,7 @@ let g:ctrlp_map = '<leader>p'
 
 "lightline
 set noshowmode
-"line customization (uses git-fugitive)
+"line customization (uses git-fugitive)i
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
@@ -36,6 +27,8 @@ let g:lightline = {
       \   'fugitive': 'fugitive#head'
       \ },
       \ }
+set laststatus=2
+  
 " UltiSnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<C-g>"
 let g:UltiSnipsJumpForwardTrigger="<C-g>"
