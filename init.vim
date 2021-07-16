@@ -46,6 +46,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
   
   Plug 'lervag/vimtex', {'for': 'tex'}
+
+  Plug 'dbmrq/vim-dialect'
 call plug#end()
 
 filetype plugin on            " required so plugins can detect filetype

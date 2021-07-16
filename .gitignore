@@ -2,3 +2,5 @@ plugged
 autoload
 undodir/%*
 *.swp
+*.add
+*.spl
