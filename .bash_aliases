@@ -3,7 +3,8 @@ alias try="xdg-open"
 alias python="python3" # because fuck python 2
 alias py3="python3"
 
-alias vim="vim --servername VIM"
+#alias vim="vim --servername VIM"
+alias vim="nvim"
 # Navigation aliases
 alias quit="exit"
 alias ..="cd .."
