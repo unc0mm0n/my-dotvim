@@ -67,7 +67,9 @@ inoremap <leader>u <C-o>u
 
 " Quick fix and come back
 inoremap <leader>sf <c-g>u<Esc>[s1z=`]a<c-g>u
-" Add to dictionary and come back
 
-" Ignore for this file and come back
+" Add to dictionary and come back
+inoremap <leader>sf <c-g>u<Esc>[s1zg`]a<c-g>u
+
+" Ignore for this session and come back
 inoremap <leader>si <c-g>u<Esc>[s1zG`]a<c-g>u
