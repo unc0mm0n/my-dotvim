@@ -30,10 +30,10 @@ let g:lightline = {
 set laststatus=2
   
 " UltiSnips. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<C-f>"
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnippets"
+let g:UltiSnipsExpandTrigger="<leader>g"
+let g:UltiSnipsJumpForwardTrigger="<leader>g"
+let g:UltiSnipsJumpBackwardTrigger="<leader>f"
+let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnippets"
 let g:UltiSnipsSnippetDirectories= ['UltiSnippets']
 let g:UltiSnipsEditSplit="vertical"
 nnoremap <leader>ue :UltiSnipsEdit<cr>

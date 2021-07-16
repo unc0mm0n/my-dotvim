@@ -35,7 +35,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'crusoexia/vim-monokai'
 
   " IDE feautres 3
-  Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['haskell', 'c', 'cpp', 'python', 'tex']}
+  Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['haskell', 'c', 'cpp', 'python']}
   
   " CPP semantic hilighting
   Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -108,6 +108,10 @@ set vb t_vb=
 " split default
 set splitright
 set splitbelow
+
+" Spell check
+setlocal spell
+set spelllang=en_us,en_gb
 
 " include .tex file settings
 " source ~/.vimrc_tex

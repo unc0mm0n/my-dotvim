@@ -42,30 +42,32 @@ cmap w!! w !sudo tee > /dev/null &
 noremap <leader>, <C-O>
 
 " tab navigation
-nnoremap <leader>t  :tabnew<CR>
-nnoremap <leader>wt :tabclose<CR>
-nnoremap <leader>et :tabedit<Space>
-nnoremap <leader>f  :tabnext<CR>
-nnoremap <leader>d  :tabprevious<CR>
+nnoremap <leader>tt  :tabnew<CR>
+nnoremap <leader>tw :tabclose<CR>
+nnoremap <leader>te :tabedit<Space>
+nnoremap <leader>tf  :tabnext<CR>
+nnoremap <leader>td  :tabprevious<CR>
 
-inoremap <leader>f  <C-o>:tabnext<CR>
-inoremap <leader>d  <C-o>:tabprevious<CR>
+inoremap <leader>tf  <C-o>:tabnext<CR>
+inoremap <leader>td  <C-o>:tabprevious<CR>
 
-nnoremap <leader>1 1gt
-nnoremap <leader>2 2gt
-nnoremap <leader>3 3gt
-nnoremap <leader>4 4gt
-nnoremap <leader>5 5gt
-nnoremap <leader>6 6gt
-nnoremap <leader>7 7gt
-nnoremap <leader>8 8gt
-nnoremap <leader>9 9gt
-nnoremap <leader>0 10gt
+nnoremap <leader>t1 1gt
+nnoremap <leader>t2 2gt
+nnoremap <leader>t3 3gt
+nnoremap <leader>t4 4gt
+nnoremap <leader>t5 5gt
+nnoremap <leader>t6 6gt
+nnoremap <leader>t7 7gt
+nnoremap <leader>t8 8gt
+nnoremap <leader>t9 9gt
+nnoremap <leader>t0 10gt
 
 " Quick undo in insert mode
 inoremap <leader>u <C-o>u
 
-" Spell check
-setlocal spell
-set spelllang=en_us,en_gb
-inoremap <leader>s <c-g>u<Esc>[s1z=`]a<c-g>u
+" Quick fix and come back
+inoremap <leader>sf <c-g>u<Esc>[s1z=`]a<c-g>u
+" Add to dictionary and come back
+
+" Ignore for this file and come back
+inoremap <leader>si <c-g>u<Esc>[s1zG`]a<c-g>u
