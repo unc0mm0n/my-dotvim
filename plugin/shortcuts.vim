@@ -69,7 +69,6 @@ inoremap <leader>u <C-o>u
 inoremap <leader>sf <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Add to dictionary and come back
-inoremap <leader>sf <c-g>u<Esc>[s1zg`]a<c-g>u
-
-" Ignore for this session and come back
-inoremap <leader>si <c-g>u<Esc>[s1zG`]a<c-g>u
+inoremap <leader>sg <c-g>u<Esc>[s1zg`]a<c-g>u
+" Add to local dialect and come back
+inoremap <leader>sG <c-g>u<Esc>[s1zG`]a<c-g>u
