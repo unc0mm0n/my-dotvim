@@ -34,12 +34,8 @@ call plug#begin('~/.config/nvim/plugged')
   " Actually a color scheme..
   Plug 'crusoexia/vim-monokai'
 
-  " IDE features
-  Plug 'Valloric/YouCompleteMe', {'for': 'python'}
-  " IDE features 2
-  " Plug 'dense-analysis/ale'
-  " IDE feautres 3  for now only for haskell, but a good candidate to replacing YCM
-  Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['haskell', 'c', 'cpp']}
+  " IDE feautres 3
+  Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['haskell', 'c', 'cpp', 'python', 'tex']}
   
   " CPP semantic hilighting
   Plug 'jackguo380/vim-lsp-cxx-highlight'
