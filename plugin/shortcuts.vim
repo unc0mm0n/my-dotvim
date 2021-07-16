@@ -10,12 +10,16 @@ inoremap <C-J> <C-o><C-W><C-J>
 inoremap <C-K> <C-o><C-W><C-K>
 inoremap <C-L> <C-o><C-W><C-L>
 
-" exit modes (jk versions are legacy..)
-inoremap jk    <esc>
+" leader exit key
+inoremap <leader><space> <leader><space>
+" exit modes (jk versions are legacy.. NO MORE LEGACY)
+"inoremap jk    <esc>
 inoremap <leader>k <esc>
+inoremap <leader>l <esc>
 
-vnoremap jk    <esc>
+"vnoremap jk    <esc>
 vnoremap <leader>k <esc>
+vnoremap <leader>l <esc>
 
 " close
 nnoremap <leader>q :q<CR>
@@ -57,3 +61,6 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <leader>0 10gt
+
+" Quick undo in insert mode
+inoremap <leader>u <C-o>u
