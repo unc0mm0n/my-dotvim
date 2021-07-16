@@ -20,7 +20,11 @@ snippet env "create new environment"
 endsnippet
 
 snippet mm "inline math" wA
-\( ${VISUAL}$1 \) 
+\( ${VISUAL}$1 \)`!p
+snip.rv = ' '
+if t[2] and t[2][0] not in ['.',',','-',' ',':']:
+	snip.rv = ''
+`
 endsnippet
 
 snippet mk "display math" wA

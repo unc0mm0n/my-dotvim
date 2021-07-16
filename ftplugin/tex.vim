@@ -7,4 +7,4 @@ set conceallevel=1
 let g:tex_conceal='abdmg'
 
 " math mappings
-let g:vimtex_imaps_leader="."
+let g:vimtex_imaps_leader=".h"

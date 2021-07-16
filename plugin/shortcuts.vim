@@ -64,3 +64,8 @@ nnoremap <leader>0 10gt
 
 " Quick undo in insert mode
 inoremap <leader>u <C-o>u
+
+" Spell check
+setlocal spell
+set spelllang=en_us,en_gb
+inoremap <leader>s <c-g>u<Esc>[s1z=`]a<c-g>u
