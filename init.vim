@@ -7,6 +7,9 @@ set encoding=utf-8            " We don't link non-utf stuff
 " with importing it to other files...
 let g:nvim_config_root = stdpath('config')
 
+autocmd BufNewFile,BufRead *.ter setfiletype cpp
+autocmd BufNewFile,BufRead *.ti setfiletype cpp
+
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -22,20 +25,23 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'airblade/vim-gitgutter'
 
   " Fuzzy search and open
-  Plug 'kien/ctrlp.vim'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'FelikZ/ctrlp-py-matcher'
+
 
   " Directory tree view
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
-  " Snippets
-  Plug 'SirVer/ultisnips'
+  " Snippets (should fix python issue)
+  " Plug 'SirVer/ultisnips'
 
   " Actually a color scheme..
   Plug 'crusoexia/vim-monokai'
 
   " IDE feautres 3
   Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['haskell', 'c', 'cpp', 'python']}
+  Plug 'skywind3000/gutentags_plus'
   
   " CPP semantic hilighting
   Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -56,13 +62,14 @@ filetype on
 
 set autoread    " automatically read changed files on disk
 set updatetime=300 " default=4000
-
+set autochdir   " cd do working file's directory
 syntax on
 colorscheme monokai
 
 " all hail
 let mapleader = ';'
 
+set so=10
 set wildmenu    " autocomplete using menu instead of rotation
 
 " smart undo
@@ -86,6 +93,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+set smarttab
 
 " don't close buffers
 set hidden
@@ -102,7 +110,7 @@ set cursorline
 set colorcolumn=120
 " color scheme
 highlight colorcolumn ctermbg=darkgray
-
+highlight MatchParen ctermfg=5
 " slience
 set noerrorbells
 set vb t_vb=
@@ -115,9 +123,8 @@ set splitbelow
 setlocal spell
 set spelllang=en_us,en_gb
 
-" include .tex file settings
-" source ~/.vimrc_tex
-
+" try setting tags
+set tags=./tags,tags;
 
 " Delete trailing white space on save
 " will only run if the ftplugin/*.vim sets `b:stripWhitespaces=1`
@@ -141,5 +148,6 @@ augroup last_edit
        \   exe "normal! g`\"" |
        \ endif
 augroup END
+
 
 " more files in plugin directory

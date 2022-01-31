@@ -11,8 +11,6 @@ au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTre
 let NERDTreeShowHidden=1
 nnoremap <C-D> :NERDTreeToggle<CR>
 
-"ctrlp
-let g:ctrlp_map = '<leader>p'
 
 "lightline
 set noshowmode
@@ -37,3 +35,8 @@ let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnippets"
 let g:UltiSnipsSnippetDirectories= ['UltiSnippets']
 let g:UltiSnipsEditSplit="vertical"
 nnoremap <leader>ue :UltiSnipsEdit<cr>
+
+exec 'source' g:nvim_config_root . '/plugin_configs/fugitive.vim'
+exec 'source' g:nvim_config_root . '/plugin_configs/ctrlp.vim'
+
+let g:gutentags_ctags_executable="${HOME}/ctags/bin/ctags"

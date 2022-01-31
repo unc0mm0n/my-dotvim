@@ -10,15 +10,27 @@ inoremap <C-J> <C-o><C-W><C-J>
 inoremap <C-K> <C-o><C-W><C-K>
 inoremap <C-L> <C-o><C-W><C-L>
 
+" Open file under cursor
+" In new tab
+nnoremap <leader>ft <C-W>gf
+" In same window
+nnoremap <leader>ff gf
+" In vertical split
+nnoremap <leader>fv :vertical wincmd f<CR>
+
+inoremap <leader>ft <C-o><C-w>gf
+inoremap <leader>ff <C-o>gf
+inoremap <leader>fv <C-o>:vertical wincmd f<CR>
+
+" Get File Directory
+nnoremap <leader>fd 1<C-g>
 " leader exit key
 inoremap <leader><space> <leader><space>
 " exit modes (jk versions are legacy.. NO MORE LEGACY)
 "inoremap jk    <esc>
-inoremap <leader>k <esc>
 inoremap <leader>l <esc>
 
 "vnoremap jk    <esc>
-vnoremap <leader>k <esc>
 vnoremap <leader>l <esc>
 
 " close
@@ -40,16 +52,20 @@ cmap w!! w !sudo tee > /dev/null &
 
 " go back in search
 noremap <leader>, <C-O>
+" Quick line skip
+nnoremap <leader>k <PageUp>
+nnoremap <leader>j <PageDown>
 
 " tab navigation
 nnoremap <leader>tt  :tabnew<CR>
 nnoremap <leader>tw :tabclose<CR>
 nnoremap <leader>te :tabedit<Space>
-nnoremap <leader>tf  :tabnext<CR>
-nnoremap <leader>td  :tabprevious<CR>
+nnoremap <leader>tj  :tabnext<CR>
+nnoremap <leader>tk  :tabprevious<CR>
+nnoremap <leader>tb :tabmove<CR>
 
-inoremap <leader>tf  <C-o>:tabnext<CR>
-inoremap <leader>td  <C-o>:tabprevious<CR>
+inoremap <leader>tj  <C-o>:tabnext<CR>
+inoremap <leader>tk  <C-o>:tabprevious<CR>
 
 nnoremap <leader>t1 1gt
 nnoremap <leader>t2 2gt
@@ -72,3 +88,6 @@ inoremap <leader>sf <c-g>u<Esc>[s1z=`]a<c-g>u
 inoremap <leader>sg <c-g>u<Esc>[s1zg`]a<c-g>u
 " Add to local dialect and come back
 inoremap <leader>sG <c-g>u<Esc>[s1zG`]a<c-g>u
+
+" cd to open file directory
+nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
