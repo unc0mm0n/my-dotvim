@@ -6,6 +6,11 @@ set encoding=utf-8            " We don't link non-utf stuff
 " I tried creating a function that sources automatically, but had issues
 " with importing it to other files...
 let g:nvim_config_root = stdpath('config')
+if (!empty($NVIM_CACHE))
+  let g:nvim_cache = $NVIM_CACHE
+else 
+  let g:nvim_cache = expand('~/.cache')
+endif
 
 autocmd BufNewFile,BufRead *.ter setfiletype cpp
 autocmd BufNewFile,BufRead *.ti setfiletype cpp
@@ -40,8 +45,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'crusoexia/vim-monokai'
 
   " IDE feautres 3
-  Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['haskell', 'c', 'cpp', 'python']}
-  Plug 'skywind3000/gutentags_plus'
+  Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['haskell', 'c', 'cpp', 'python', 'rust']}
+  Plug 'ludovicchabant/vim-gutentags'
+  Plug 'preservim/tagbar'
   
   " CPP semantic hilighting
   Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -52,6 +58,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
   
   Plug 'lervag/vimtex', {'for': 'tex'}
+
+  "Plug 'rust-lang/rust.vim', {'for' : 'rust'}
 
   Plug 'dbmrq/vim-dialect'
 call plug#end()

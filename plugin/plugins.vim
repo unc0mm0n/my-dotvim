@@ -14,15 +14,17 @@ nnoremap <C-D> :NERDTreeToggle<CR>
 
 "lightline
 set noshowmode
-"line customization (uses git-fugitive)i
+"line customization (uses git-fugitive and gutentags)
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ ['gutentags'] ]
       \ },
       \ 'component_function': {
-      \   'fugitive': 'fugitive#head'
+      \   'fugitive': 'fugitive#head',
+      \   'gutentags': 'gutentags#statusline'
       \ },
       \ }
 set laststatus=2
@@ -38,5 +40,4 @@ nnoremap <leader>ue :UltiSnipsEdit<cr>
 
 exec 'source' g:nvim_config_root . '/plugin_configs/fugitive.vim'
 exec 'source' g:nvim_config_root . '/plugin_configs/ctrlp.vim'
-
-let g:gutentags_ctags_executable="${HOME}/ctags/bin/ctags"
+exec 'source' g:nvim_config_root . '/plugin_configs/gutentags.vim'
