@@ -109,7 +109,7 @@ set hidden
 " Line numbers and other trench features.
 set number
 set ruler "Display position on buttom left.. meh..
-set signcolumn=yes " make sign-column always visible.. Annoying but prevents annoying shifts
+set signcolumn=number
 
 " line highlighting
 set cursorline
