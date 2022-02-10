@@ -12,3 +12,7 @@ let g:gutentags_cache_dir = expand(g:nvim_cache . '/tags')
 
 " change focus to quickfix window after search (optional).
 let g:gutentags_plus_switch = 1
+
+nnoremap <leader>fs :TagbarToggle<CR>
+" Open nerdtree and leave to main buffer on open
+au vimenter * TagbarToggle
